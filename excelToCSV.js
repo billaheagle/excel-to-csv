@@ -1,7 +1,14 @@
 var xlsx = require("node-xlsx");
+var XLSX = require("xlsx");
 var fs = require("fs");
 
 generateCSV = (filename) => {
+    const workBook = XLSX.readFile(filename);
+    XLSX.writeFile(workBook, "result.csv", { bookType: "csv" });
+    console.log("result.csv was saved in the current directory!");
+};
+
+generateCSVOld = (filename) => {
     var obj = xlsx.parse(__dirname + filename); // parses a file
     var rows = [];
     var writeStr = "";

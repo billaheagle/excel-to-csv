@@ -6,7 +6,7 @@ if (process.argv[2] === undefined) {
     var file = process.argv[2];
 
     if (file.charAt(0) == ".") file = file.substring(1);
-    if (file.charAt(0) != "\\") file = "\\" + file;
+    if (file.charAt(0) == "\\") file = file.substring(1);
 
     const ext = file.split(".");
     if (ext[1] == "xlsx" || ext[1] == "xls") {
